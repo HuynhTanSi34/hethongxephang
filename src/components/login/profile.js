@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../UI/style.css";
+import classes from "../UI/LoginModule/profile.module.css";
 import Logomini from "../../components/image/Logomini.png";
 import filogout from "../../components/image/filogout.png";
 import element4 from "../../components/image/element4.png";
@@ -19,55 +20,57 @@ function Profile() {
   const [show, setShow] = useState(false);
   return (
     <section className="screen">
-      <section className="inform1">
+      <section className={classes.inform}>
         <img src={Logomini} alt="Logo" className="logo1" />
-        <div className="list">
-          <div className="listItem">
+        <div className={classes.list}>
+          <div className={classes.listItem}>
             <Link to="/dashboard/day" className="Link">
               <img src={element4} />
               <div>Dashboard</div>
             </Link>
           </div>
 
-          <div className="listItem">
+          <div className={classes.listItem}>
             <Link to="/device/quanli" className="Link">
               <img src={monitor} />
               <div>Thiết bị</div>
             </Link>
           </div>
-          <div className="listItem">
+          <div className={classes.listItem}>
             <img src={service} />
             <div>Dịch vụ</div>
           </div>
-          <div className="listItem">
+          <div className={classes.listItem}>
             <img src={filayers} />
             <div>Cấp số</div>
           </div>
-          <div className="listItem">
+          <div className={classes.listItem}>
             <img src={map} />
             <div>Báo cáo</div>
           </div>
-          <div className="listItem ml">
+          <div className={`${classes.listItem} ${classes.ml}`}>
             <img src={setting} />
             <div>Cài đặt hệ thống</div>
-            <img src={bacham} className="bacham" />
-            <div className="mucluc">
-              <div className="muclucItem">Quản lí vai trò</div>
-              <div className="muclucItem">Quản lí tài khoản</div>
-              <div className="muclucItem">Nhật ký người dùng</div>
+            <img src={bacham} className={classes.bacham} />
+            <div className={classes.mucluc}>
+              <div className={classes.muclucItem}>Quản lí vai trò</div>
+              <div className={classes.muclucItem}>Quản lí tài khoản</div>
+              <div className={classes.muclucItem}>Nhật ký người dùng</div>
             </div>
           </div>
         </div>
-        <div className="out">
-          <img src={filogout} alt="out" className="item5" />
-          <div>Đăng xuất</div>
-        </div>
+        <Link to={"/" || ""}>
+          <div className={classes.out}>
+            <img src={filogout} alt="out" className={classes.item5} />
+            <div>Đăng xuất</div>
+          </div>
+        </Link>
       </section>
-      <section className="content">
-        <div className="title55">Thông tin cá nhân</div>
-        <div className="title52">
+      <section className={classes.content}>
+        <div className={classes.title}>Thông tin cá nhân</div>
+        <div className={classes.title2}>
           <div>
-            <button onClick={() => setShow(!show)}>
+            <button onClick={() => setShow(!show)} className="bambell">
               <img alt="thongbao" src={bell} className="bell" />
               {show && <Bell />}
             </button>
@@ -80,44 +83,60 @@ function Profile() {
             <div className="ten">Lê Quỳnh Ái Vân</div>
           </div>
         </div>
-        <div className="infor">
-          <div className="photo">
+        <div className={classes.infor}>
+          <div className={classes.photo}>
             <img src={avatarbig} alt="..." />
-            <img src={changepic} alt="..." className="change" />
+            <img src={changepic} alt="..." className={classes.change} />
           </div>
-          <div className="name">Lê Quỳnh Ái Vân</div>
-          <div className="listinfor">
-            <div className="inforitem">
+          <div className={classes.name}>Lê Quỳnh Ái Vân</div>
+          <div className={classes.listinfor}>
+            <div className={classes.inforitem}>
               Tên người dùng
               <input
                 type="text"
-                className="inp"
+                className={classes.inp}
                 placeholder="Lê Quỳnh Ái Vân"
               />
             </div>
-            <div className="inforitem">
+            <div className={classes.inforitem}>
               Tên đăng nhập
-              <input type="text" className="inp" placeholder="lequynhaivan01" />
+              <input
+                type="text"
+                className={classes.inp}
+                placeholder="lequynhaivan01"
+              />
             </div>
-            <div className="inforitem">
+            <div className={classes.inforitem}>
               Số điện thoại
-              <input type="text" className="inp" placeholder="0767375921" />
+              <input
+                type="text"
+                className={classes.inp}
+                placeholder="0767375921"
+              />
             </div>
-            <div className="inforitem">
+            <div className={classes.inforitem}>
               Mật khẩu
-              <input type="text" className="inp" placeholder="311940211" />
+              <input
+                type="text"
+                className={classes.inp}
+                placeholder="311940211"
+              />
             </div>
-            <div className="inforitem">
+            <div className={classes.inforitem}>
               Email:
               <input
                 type="text"
-                className="inp"
+                className={classes.inp}
                 placeholder="adminSSO1@domain.com"
               />
             </div>
-            <div className="inforitem">
+            <div className={classes.inforitem}>
               Vai trò:
-              <input type="text" className="inp" placeholder="Kế toán" />
+              <input
+                type="text"
+                className={classes.inp}
+                placeholder="Kế toán"
+              />
             </div>
           </div>
         </div>

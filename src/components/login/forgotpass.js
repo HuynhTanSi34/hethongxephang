@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../UI/style.css";
+import classes from "../UI/LoginModule/forgotpass.module.css";
 import Frame from "../../components/image/Frame.png";
 import Logoalta from "../../components/image/Logoalta.png";
 const Forgot = () => {
@@ -10,17 +11,25 @@ const Forgot = () => {
           <img src={Logoalta} alt="Lỗi" />
         </div>
         <form>
-          <div className="use2">Đặt lại mật khẩu</div>
-          <div className="pas2">
+          <div className={classes.use}>Đặt lại mật khẩu</div>
+          <div className={classes.pas}>
             Vui lòng nhập email để đặt lại mật khẩu của bạn*
           </div>
-          <input className="reset" type="text" placeholder="abc@gmail.com" />
+          <input
+            className={classes.reset}
+            type="text"
+            placeholder="abc@gmail.com"
+          />
           <div>
             <Link to="/login/newpass">
-              <input type="submit" value="Tiếp tục" className="submit3" />
+              <input
+                type="submit"
+                value="Tiếp tục"
+                className={classes.submit}
+              />
             </Link>
 
-            <input className="cancel3" type="submit" value="Hủy" />
+            <input className={classes.cancel} type="submit" value="Hủy" />
           </div>
         </form>
       </div>

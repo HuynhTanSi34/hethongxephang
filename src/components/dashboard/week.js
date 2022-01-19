@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import "../UI/dashboard.css";
+import "../UI/style.css";
+import classes from "../UI/DashboardModule/day.module.css";
 import Bell from "../login/bell";
 import { useState } from "react";
 import Logomini from "../../components/image/Logomini.png";
@@ -47,53 +48,55 @@ function Week() {
     },
   };
   return (
-    <div className="screenn">
-      <section className="inform2">
+    <div className={classes.screen}>
+      <section className={classes.inform}>
         <img src={Logomini} alt="Logo" className="logo1" />
-        <div className="list">
-          <div className="listItem das">
+        <div className={classes.list}>
+          <div className={`${classes.listItem} ${classes.das}`}>
             <img src={element4} />
             <div>Dashboard</div>
           </div>
 
-          <div className="listItem">
+          <div className={classes.listItem}>
             <Link to="/device/quanli" className="Link">
               <img src={monitor} />
               <div>Thiết bị</div>
             </Link>
           </div>
 
-          <div className="listItem">
+          <div className={classes.listItem}>
             <img src={service} />
             <div>Dịch vụ</div>
           </div>
-          <div className="listItem">
+          <div className={classes.listItem}>
             <img src={filayers} />
             <div>Cấp số</div>
           </div>
-          <div className="listItem">
+          <div className={classes.listItem}>
             <img src={map} />
             <div>Báo cáo</div>
           </div>
-          <div className="listItem ml">
+          <div className={`${classes.listItem} ${classes.ml}`}>
             <img src={setting} />
             <div>Cài đặt hệ thống</div>
-            <img src={bacham} className="bacham" />
-            <div className="mucluc">
-              <div className="muclucItem">Quản lí vai trò</div>
-              <div className="muclucItem">Quản lí tài khoản</div>
-              <div className="muclucItem">Nhật ký người dùng</div>
+            <img src={bacham} className={classes.bacham} />
+            <div className={classes.mucluc}>
+              <div className={classes.muclucItem}>Quản lí vai trò</div>
+              <div className={classes.muclucItem}>Quản lí tài khoản</div>
+              <div className={classes.muclucItem}>Nhật ký người dùng</div>
             </div>
           </div>
         </div>
-        <div className="out">
-          <img src={filogout} alt="out" className="item5" />
-          <div>Đăng xuất</div>
-        </div>
+        <Link to={"/" || ""}>
+          <div className={classes.out}>
+            <img src={filogout} alt="out" className={classes.item5} />
+            <div>Đăng xuất</div>
+          </div>
+        </Link>
       </section>
-      <section className="map">
-        <div className="title7">Dashboard</div>
-        <div className="title8">Biểu đồ cấp số </div>
+      <section className={classes.map}>
+        <div className={classes.title}>Dashboard</div>
+        <div className={classes.title1}>Biểu đồ cấp số </div>
         <div className="stt">
           <div className="sttItem">
             <div className="sttItem1">
@@ -138,21 +141,24 @@ function Week() {
         </div>
         <Chartweek />
       </section>
-      <section className="overoll">
+      <section className={classes.overoll}>
         <div className="title52">
           <div>
-            <button onClick={() => setShow(!show)}>
+            <button onClick={() => setShow(!show)} className="bambell">
               <img alt="thongbao" src={bell} className="bell" />
               {show && <Bell />}
             </button>
           </div>
           <div>
-            <Link to="/login/profile">
+            <Link to="/login/profile" className="Link">
               <img alt="avatar" src={avatarmini} className="avatarmini" />
             </Link>
           </div>
           <div>
-            <Link to="/login/profile" className="linkavatar">
+            <Link
+              to="/login/profile"
+              className={`${classes.linkavatar} ${classes.Link}`}
+            >
               <div className="chao">Xin chào</div>
               <div className="ten">Lê Quỳnh Ái Vân</div>
             </Link>

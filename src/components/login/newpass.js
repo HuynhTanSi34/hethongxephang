@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../UI/style.css";
+import classes from "../UI/LoginModule/newpass.module.css";
 import Frame from "../../components/image/Frame.png";
 import Logoalta from "../../components/image/Logoalta.png";
 import eye from "../../components/image/eye.png";
@@ -11,20 +12,24 @@ const Newpass = () => {
           <img src={Logoalta} alt="Lỗi" />
         </div>
         <form>
-          <div className="title4">Đặt lại mật khẩu mới</div>
-          <div className="newpa">
+          <div className={classes.title}>Đặt lại mật khẩu mới</div>
+          <div className={classes.newpa}>
             Mật khẩu
-            <input type="password" name="password" className="pas3" />
-            <img src={eye} alt="..." className="eye1" />
+            <input type="password" name="password" className={classes.pas3} />
+            <img src={eye} alt="..." className={classes.eye} />
           </div>
-          <div className="newpa1">
+          <div className={classes.newpa1}>
             Nhập lại mật khẩu
-            <input type="password" nam="password" className="pas4" />
-            <img src={eye} alt="..." className="eye1" />
+            <input type="password" nam="password" className={classes.pas4} />
+            <img src={eye} alt="..." className={classes.eye} />
           </div>
           <div>
             <Link to="/login/profile">
-              <input type="submit" value="Xác nhận" className="submit4" />
+              <input
+                type="submit"
+                value="Xác nhận"
+                className={classes.submit}
+              />
             </Link>
           </div>
         </form>

@@ -1,4 +1,6 @@
 import "..//UI/style.css";
+import classes from "../UI/LoginModule/errpass.module.css";
+import { Link } from "react-router-dom";
 import Group341 from "../../components/image/Group341.png";
 import Hethong from "../../components/image/Hethong.png";
 import Quanli from "../../components/image/Quanli.png";
@@ -13,32 +15,38 @@ const Errpass = () => {
           <img src={Logoalta} alt="Lỗi" />
         </div>
         <form>
-          <div className="user">
+          <div className={classes.user}>
             Tên đăng nhập*
             <input
-              className="use1"
+              className={classes.use}
               type="text"
               name="name"
               placeholder="lequynhavan01"
             />
           </div>
-          <div className="pass">
+          <div className={classes.pass}>
             Mật khẩu*
             <input
               type="password"
               name="password"
               placeholder="****"
-              className="pas1"
+              className={classes.pas}
             />
           </div>
           <img src={eye} alt="Eye" className="eye" />
-          <div className="failt1">
+          <div className={classes.failt}>
             <img src={failt} />
           </div>
           <br />
           <div>
-            <input type="submit" value="Đăng nhập" className="submit2" />
-            <div className="forgot1">Quên mật khẩu?</div>
+            <input
+              type="submit"
+              value="Đăng nhập"
+              className={classes.submit2}
+            />
+            <div className={classes.forgot}>
+              <Link to="/login/forgotpass">Quên mật khẩu?</Link>
+            </div>
           </div>
         </form>
       </div>

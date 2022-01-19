@@ -1,0 +1,77 @@
+.title {
+  height: 33px;
+  width: 217px;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #282739;
+  position: absolute;
+  left: 198px;
+  top: 320px;
+  right: 1025px;
+  bottom: 457px;
+}
+.newpa {
+  position: absolute;
+  left: 94px;
+  top: 365px;
+  right: 946px;
+  bottom: 370px;
+  height: 80px;
+  width: 400px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.newpa1 {
+  position: absolute;
+  left: 94px;
+  top: 465px;
+  right: 946px;
+  bottom: 279px;
+  height: 80px;
+  width: 400px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.pas3,
+.pas4 {
+  height: 44px;
+  width: 390px;
+  background-color: white;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ffffff;
+  padding: 5px 0px 5px 12px;
+  margin-top: 4px;
+}
+.eye {
+  position: absolute;
+  top: 45.66px;
+  left: 365.66px;
+  bottom: 13.66px;
+  right: 13.66px;
+  cursor: pointer;
+}
+.submit {
+  height: 40px;
+  width: 162px;
+  left: 118px;
+  border-radius: 8px;
+  padding: 10px, 24px, 10px, 24px;
+  border: 1px solid #ff9138;
+  background-color: orange;
+  color: white;
+  position: absolute;
+  top: 579px;
+  left: 219px;
+  bottom: 191px;
+  right: 1059px;
+}

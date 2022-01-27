@@ -45,8 +45,10 @@ function Profile() {
             <div>Cấp số</div>
           </div>
           <div className={classes.listItem}>
-            <img src={map} />
-            <div>Báo cáo</div>
+            <Link to="/report" className="Link">
+              <img src={map} />
+              <div>Báo cáo</div>
+            </Link>
           </div>
           <div className={`${classes.listItem} ${classes.ml}`}>
             <img src={setting} />

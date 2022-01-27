@@ -48,8 +48,10 @@ function Quanli() {
             <div>Cấp số</div>
           </div>
           <div className={classes.listItem}>
-            <img src={map} />
-            <div>Báo cáo</div>
+            <Link to="/report" className="Link">
+              <img src={monitor} />
+              <div>Báo cáo</div>
+            </Link>
           </div>
           <div className={`${classes.listItem} ${classes.ml}`}>
             <img src={setting} />
@@ -140,35 +142,47 @@ function Quanli() {
           </div>
         </Link>
         <section className={classes.table}>
-          <table>
+          <table className={classes.bang}>
             <tr>
-              <th style={{ width: "103px" }}>Mã thiết bị</th>
-              <th style={{ width: "99px" }}>Tên thiết bị</th>
-              <th style={{ width: "136px" }}>Địa chỉ IP</th>
-              <th style={{ width: "174px" }}>Trạng thái hoạt động</th>
-              <th style={{ width: "145px" }}>Trạng thái kết nối</th>
-              <th style={{ width: "268px" }}>Dịch vụ sử dụng</th>
-              <th style={{ width: "82px" }}></th>
-              <th style={{ width: "104px" }}></th>
+              <th className={classes.th} style={{ width: "103px" }}>
+                Mã thiết bị
+              </th>
+              <th className={classes.th} style={{ width: "99px" }}>
+                Tên thiết bị
+              </th>
+              <th className={classes.th} style={{ width: "136px" }}>
+                Địa chỉ IP
+              </th>
+              <th className={classes.th} style={{ width: "174px" }}>
+                Trạng thái hoạt động
+              </th>
+              <th className={classes.th} style={{ width: "145px" }}>
+                Trạng thái kết nối
+              </th>
+              <th className={classes.th} style={{ width: "268px" }}>
+                Dịch vụ sử dụng
+              </th>
+              <th className={classes.th} style={{ width: "82px" }}></th>
+              <th className={classes.th} style={{ width: "104px" }}></th>
             </tr>
             <tr>
-              <td>KIO_01</td>
-              <td> Kiosk</td>
-              <td>192.168.1.10</td>
-              <td>
+              <td className={classes.td}>KIO_01</td>
+              <td className={classes.td}> Kiosk</td>
+              <td className={classes.td}>192.168.1.10</td>
+              <td className={classes.td}>
                 <img src={chamdo} className={classes.chamdo} />
                 Ngưng hoạt động
               </td>
-              <td>
+              <td className={classes.td}>
                 <img src={chamdo} className={classes.chamdo} />
                 Mất kết nối
               </td>
-              <td>
+              <td className={classes.td}>
                 <div>Khám tim mạch, Khám mắt...</div>
                 <div className={classes.duongdan}>Xem thêm</div>
               </td>
-              <td className={classes.duongdan}>Chi tiết </td>
-              <td className={classes.duongdan}>Cập nhật</td>
+              <td className={`${classes.td} ${classes.duongdan}`}>Chi tiết </td>
+              <td className={`${classes.td} ${classes.duongdan}`}>Cập nhật</td>
             </tr>
             <tr>
               <td className={classes.tdchan}>KIO_01</td>
@@ -194,23 +208,23 @@ function Quanli() {
               </td>
             </tr>
             <tr>
-              <td>KIO_01</td>
-              <td> Kiosk</td>
-              <td>192.168.1.10</td>
-              <td>
+              <td className={classes.td}>KIO_01</td>
+              <td className={classes.td}> Kiosk</td>
+              <td className={classes.td}>192.168.1.10</td>
+              <td className={classes.td}>
                 <img src={chamxanh} className={classes.chamxanh} />
                 Hoạt động
               </td>
-              <td>
+              <td className={classes.td}>
                 <img src={chamdo} className={classes.chamdo} />
                 Mất kết nối
               </td>
-              <td>
+              <td className={classes.td}>
                 <div>Khám tim mạch, Khám mắt...</div>
                 <div className={classes.duongdan}>Xem thêm</div>
               </td>
-              <td className={classes.duongdan}>Chi tiết </td>
-              <td className={classes.duongdan}>Cập nhật</td>
+              <td className={`${classes.td} ${classes.duongdan}`}>Chi tiết </td>
+              <td className={`${classes.td} ${classes.duongdan}`}>Cập nhật</td>
             </tr>
             <tr>
               <td className={classes.tdchan}>KIO_01</td>
@@ -236,23 +250,23 @@ function Quanli() {
               </td>
             </tr>
             <tr>
-              <td>KIO_01</td>
-              <td> Kiosk</td>
-              <td>192.168.1.10</td>
-              <td>
+              <td className={classes.td}>KIO_01</td>
+              <td className={classes.td}> Kiosk</td>
+              <td className={classes.td}>192.168.1.10</td>
+              <td className={classes.td}>
                 <img src={chamxanh} className={classes.chamxanh} />
                 Hoạt động
               </td>
-              <td>
+              <td className={classes.td}>
                 <img src={chamdo} className={classes.chamdo} />
                 Mất kết nối
               </td>
-              <td>
+              <td className={classes.td}>
                 <div>Khám tim mạch, Khám mắt...</div>
                 <div className={classes.duongdan}>Xem thêm</div>
               </td>
-              <td className={classes.duongdan}>Chi tiết </td>
-              <td className={classes.duongdan}>Cập nhật</td>
+              <td className={`${classes.td} ${classes.duongdan}`}>Chi tiết </td>
+              <td className={`${classes.td} ${classes.duongdan}`}>Cập nhật</td>
             </tr>
             <tr>
               <td className={classes.tdchan}>KIO_01</td>
@@ -278,23 +292,23 @@ function Quanli() {
               </td>
             </tr>
             <tr>
-              <td>KIO_01</td>
-              <td> Kiosk</td>
-              <td>192.168.1.10</td>
-              <td>
+              <td className={classes.td}>KIO_01</td>
+              <td className={classes.td}> Kiosk</td>
+              <td className={classes.td}>192.168.1.10</td>
+              <td className={classes.td}>
                 <img src={chamdo} className={classes.chamdo} />
                 Ngưng hoạt động
               </td>
-              <td>
+              <td className={classes.td}>
                 <img src={chamxanh} className={classes.chamxanh} />
                 Kết nối
               </td>
-              <td>
+              <td className={classes.td}>
                 <div>Khám tim mạch, Khám mắt...</div>
                 <div className={classes.duongdan}>Xem thêm</div>
               </td>
-              <td className={classes.duongdan}>Chi tiết </td>
-              <td className={classes.duongdan}>Cập nhật</td>
+              <td className={`${classes.td} ${classes.duongdan}`}>Chi tiết </td>
+              <td className={`${classes.td} ${classes.duongdan}`}>Cập nhật</td>
             </tr>
             <tr>
               <td className={classes.tdchan}>KIO_01</td>
@@ -320,23 +334,23 @@ function Quanli() {
               </td>
             </tr>
             <tr>
-              <td>KIO_01</td>
-              <td> Kiosk</td>
-              <td>192.168.1.10</td>
-              <td>
+              <td className={classes.td}>KIO_01</td>
+              <td className={classes.td}> Kiosk</td>
+              <td className={classes.td}>192.168.1.10</td>
+              <td className={classes.td}>
                 <img src={chamxanh} className={classes.chamxanh} />
                 Hoạt động
               </td>
-              <td>
+              <td className={classes.td}>
                 <img src={chamdo} className={classes.chamdo} />
                 Mất kết nối
               </td>
-              <td>
+              <td className={classes.td}>
                 <div>Khám tim mạch, Khám mắt...</div>
                 <div className={classes.duongdan}>Xem thêm</div>
               </td>
-              <td className={classes.duongdan}>Chi tiết </td>
-              <td className={classes.duongdan}>Cập nhật</td>
+              <td className={`${classes.td} ${classes.duongdan}`}>Chi tiết </td>
+              <td className={`${classes.td} ${classes.duongdan}`}>Cập nhật</td>
             </tr>
           </table>
         </section>

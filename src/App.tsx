@@ -1,4 +1,8 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect, useReducer } from "react";
+import React from "react";
+import { Provider } from "react-redux";
+import leader from "./redux/decivelist";
 import Login from "./components/login/login";
 import Errpass from "./components/login/errpass";
 import Forgot from "./components/login/forgotpass";
@@ -13,11 +17,13 @@ import Readdevice from "./components/device/readdevice";
 import Editdevice from "./components/device/editdevice";
 import Report from "./components/report/report";
 import Stt from "./components/report/stt";
+import DeciveList from "./components/device/devicelist";
 function App() {
   return (
-    <div>
-      <Report />
-      {/* <Routes>
+    <Provider store={leader}>
+      <div>
+        <DeciveList />
+        {/* <Routes>
         <Route path={"/" || ""} element={<Login />} />
         <Route path="/login/forgotpass" element={<Forgot />} />
         <Route path="/login/newpass" element={<Newpass />} />
@@ -31,7 +37,8 @@ function App() {
         <Route path="/device/editdevice" element={<Editdevice />} />
         <Route path="/report" element={<Report />} />
       </Routes> */}
-    </div>
+      </div>
+    </Provider>
   );
 }
 

@@ -163,7 +163,7 @@
   line-height: 24px;
 }
 .trangthaihoatdongselec {
-  height: 44px;
+  height: auto;
   width: 277px;
   border-radius: 8px;
   padding: 10px 12px 10px 12px;
@@ -178,7 +178,10 @@
   margin-top: 6px;
   border: 1.5px solid #d4d4d7;
   cursor: pointer;
+  align-items: center;
+  z-index: 1;
 }
+
 .trangthaihoatdonglist {
   height: auto;
   width: 277px;
@@ -247,6 +250,7 @@
   align-items: center;
   position: absolute;
   right: 0px;
+  top: 300px;
   padding: 12px 4px 12px 4px;
 }
 .addnewdevicecontent {

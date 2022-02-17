@@ -40,7 +40,7 @@
   width: auto;
   position: absolute;
   left: 208px;
-  top: 240px;
+  top: 241px;
   background-color: white;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -117,7 +117,7 @@
   color: #ff9138;
   position: absolute;
   left: 24px;
-  top: 100px;
+  top: 90px;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -145,7 +145,7 @@
   color: black;
 }
 .trangthaihoatdong {
-  width: 300px;
+  width: 280px;
   height: 72px;
   display: flex;
   flex-direction: column;
@@ -214,23 +214,15 @@
   background-color: #fff2e7;
   border-radius: 8px;
 }
-.trangthaiketnoi {
-  width: 300px;
-  height: 72px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  left: 345px;
-  top: 68px;
-}
+
 .tukhoa {
   width: 300px;
   height: 72px;
   display: flex;
   flex-direction: column;
   position: relative;
-  top: -5px;
-  left: 840px;
+  top: 66px;
+  left: 874px;
 }
 .search {
   height: 20px;
@@ -252,6 +244,7 @@
   right: 0px;
   top: 300px;
   padding: 12px 4px 12px 4px;
+  border-radius: 8px;
 }
 .addnewdevicecontent {
   font-size: 14px;
@@ -263,18 +256,71 @@
   width: 60px;
   margin: 0px 4px 0px 4px;
 }
+.boxname {
+  height: 24px;
+  width: auto;
+  color: #282739;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  position: absolute;
+  left: 350px;
+  top: 140px;
+}
+.boxtime {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  position: absolute;
+  left: 350px;
+  top: 169px;
+}
+.boxtimeItem1 {
+  width: 150px;
+  height: 48px;
+  padding: 6px 12px 6px 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.5px solid #d4d4d7;
+  background-color: white;
+  border-radius: 8px;
+}
+.space {
+  margin: 0 10px 0 10px;
+}
+.cale {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.date {
+  height: 44px;
+  width: 100px;
+  border-width: 0px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
 .table {
-  border-radius: 12px !important;
+  position: absolute;
+  top: 220px;
 }
 .bang {
   width: auto;
-  border-radius: 12px !important;
   position: relative;
   left: 24px;
   top: 7px;
 }
 .th {
-  height: 59px;
+  height: 40px;
   background-color: orange;
   color: white;
   max-width: 270px;
@@ -286,10 +332,11 @@
   border-color: white !important;
   border-width: 1px !important;
   padding-left: 5px;
+  text-align: left;
 }
 .td {
   padding-left: 8px;
-  height: 49px;
+  height: 43px;
   background-color: white;
   font-size: 14px;
   font-style: normal;
@@ -342,7 +389,7 @@ img.chamxanh {
   justify-content: space-between;
   position: relative;
   left: 852px;
-  top: 17px;
+  top: 30px;
 }
 .newpageitem {
   height: 26px;

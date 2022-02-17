@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import "../UI/style.css";
-import { useEffect, useReducer } from "react";
-import React from "react";
 import { Provider } from "react-redux";
 import leader from "../../redux/decivelist";
-import DeciveList from "../../components/device/devicelist";
-import classes from "../UI/DeviceModule/quanli.module.css";
+import ReadServiceList from "../../components/service/readDataservice";
+import classes from "../UI/ServiceModule/readservice.module.css";
 import Logomini from "../../components/image/Logomini.png";
 import filogout from "../../components/image/filogout.png";
 import element4 from "../../components/image/element4.png";
@@ -18,12 +16,8 @@ import bacham from "../../components/image/bacham.png";
 import bell from "../../components/image/bell.png";
 import avatarmini from "../../components/image/avatarmini.png";
 import Bell from "../login/bell";
-import down from "../../components/image/down.png";
-import search from "../../components/image/search.png";
-import addsquare from "../../components/image/addsquare.png";
-
 import { useState } from "react";
-function Quanli() {
+function Readservice() {
   const [show, setShow] = useState(false);
   return (
     <Provider store={leader}>
@@ -37,15 +31,15 @@ function Quanli() {
                 <div>Dashboard</div>
               </Link>
             </div>
-            <div className={`${classes.listItem} ${classes.thiet}`}>
-              <img src={monitor} />
-              <div>Thiết bị</div>
-            </div>
             <div className={classes.listItem}>
-              <Link to="/service/listservice" className="Link">
-                <img src={service} />
-                <div>Dịch vụ</div>
+              <Link to="/device" className="Link">
+                <img src={monitor} />
+                <div>Thiết bị</div>
               </Link>
+            </div>
+            <div className={`${classes.listItem} ${classes.thiet}`}>
+              <img src={service} />
+              <div>Dịch vụ</div>
             </div>
             <div className={classes.listItem}>
               <img src={filayers} />
@@ -76,6 +70,14 @@ function Quanli() {
           </Link>
         </section>
         <section className={classes.content}>
+          <div className={classes.contentname}>
+            <div className={classes.title}>Dịch vụ </div>
+            <div className={classes.space}>{">"}</div>
+            <div className={classes.title1}>Danh sách dịch vụ </div>
+            <div className={classes.space}>{">"}</div>
+            <div className={classes.title2}>Chi tiết</div>
+          </div>
+          <div className={classes.title4}>Quản lý dịch vụ</div>
           <div className={classes.title3}>
             <div>
               <button onClick={() => setShow(!show)} className="bambell">
@@ -98,11 +100,10 @@ function Quanli() {
               </Link>
             </div>
           </div>
-
-          <DeciveList />
+          <ReadServiceList />
         </section>
       </section>
     </Provider>
   );
 }
-export default Quanli;
+export default Readservice;

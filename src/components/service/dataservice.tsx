@@ -4,15 +4,16 @@ import { fetchLists } from "../../redux/decive/deciveActions";
 import { Link } from "react-router-dom";
 import Dropdown from "react-dropdown";
 import "../UI/style.css";
-import classes from "../UI/DeviceModule/quanli.module.css";
+import classes from "../UI/ServiceModule/listservice.module.css";
 import chamdo from "../../components/image/chamdo.png";
 import chamxanh from "../../components/image/chamxanh.png";
 import addsquare from "../../components/image/addsquare.png";
+import calendar from "../../components/image/calendar.png";
 import down from "../../components/image/down.png";
 import pastpage from "../../components/image/pastpage.png";
 import nextpage from "../../components/image/nextpage.png";
 import search from "../../components/image/search.png";
-function DeciveList({ listData, fetchLists }: any) {
+function ServiceList({ listData, fetchLists }: any) {
   useEffect(() => {
     fetchLists();
   }, []);
@@ -36,31 +37,11 @@ function DeciveList({ listData, fetchLists }: any) {
       </>
     );
   };
-  const ServiceActivePoint1 = (value: any) => {
-    return (
-      <>
-        <span className="ActivePoint">
-          <img src={chamxanh} />
-        </span>
-        <span> Kết nối</span>
-      </>
-    );
-  };
-  const ServiceUnactivePoint1 = (value: any) => {
-    return (
-      <>
-        <span className="UnActivePoint">
-          <img src={chamdo} />
-        </span>
-        <span>Mất kết nối</span>
-      </>
-    );
-  };
+
   const data = listData.dataDevice;
   const [dataDevice, setDataDevice] = useState(data);
   const options = ["Tất cả", "Hoạt động", "Ngưng hoạt động"];
   const defaultOption = options[0];
-  const optionsConnect = ["Tất cả", "Kết nối", "Mất kết nối"];
   const handleDropdownValue = (e: any) => {
     if (e.value == "Hoạt động") {
       const filterdata = data.filter(
@@ -77,28 +58,15 @@ function DeciveList({ listData, fetchLists }: any) {
         (item: any) => item.activeStatus == "Ngưng hoạt động"
       );
       setDataDevice(filterdata);
-    } else if (e.value == "Kết nối") {
-      const filterdata = data.filter(
-        (item: any) => item.connecting == "Kết nối"
-      );
-      setDataDevice(filterdata);
-    } else if (e.value == "Mất kết nối") {
-      const filterdata = data.filter(
-        (item: any) => item.connecting == "Mất kết nối"
-      );
-      setDataDevice(filterdata);
-    } else {
-      setDataDevice(data);
     }
   };
-  const [showMore, setShowMore] = useState(false);
   const [search, setSearch] = useState("");
   return (
     <div>
-      <div className={classes.title}>Thiết bị {">"} </div>
-      <div className={classes.title1}>Danh sách thiết bị</div>
-      <div className={classes.title2}>Danh sách thiết bị</div>
-      <Link to="/device/adddevice">
+      <div className={classes.title}>Dịch vụ {">"} </div>
+      <div className={classes.title1}>Danh sách dịch vụ</div>
+      <div className={classes.title2}>Quản lí dịch vụ</div>
+      <Link to="/service/addservice">
         <div className={classes.addnewdevice}>
           <img src={addsquare} />
           <div className={classes.addnewdevicecontent}>Thêm thiết bị</div>
@@ -117,16 +85,24 @@ function DeciveList({ listData, fetchLists }: any) {
           />
         </div>
       </div>
-      <div className={classes.trangthaiketnoi}>
-        <div className={classes.trangthaihoatdongname}>Trạng thái kết nối</div>
-        <div className={`${classes.trangthaihoatdongselec} ${classes.trs}`}>
-          <Dropdown
-            options={optionsConnect}
-            onChange={(e) => handleDropdownValue(e)}
-            value={defaultOption}
-            placeholder="Select an option"
+      <div className={classes.boxname}>Chọn thời gian</div>
+      <div className={classes.boxtime}>
+        <div className={classes.boxtimeItem1}>
+          <img src={calendar} className={classes.cale} />
+          <input
+            type="text"
+            className={classes.date}
+            placeholder="10/10/2021"
           />
-          <img src={down} />
+        </div>
+        <div className={classes.space}>{">"} </div>
+        <div className={classes.boxtimeItem1}>
+          <img src={calendar} className={classes.cale} />
+          <input
+            type="text"
+            className={classes.date}
+            placeholder="18/10/2021"
+          />
         </div>
       </div>
       <div className={classes.tukhoa}>
@@ -142,26 +118,20 @@ function DeciveList({ listData, fetchLists }: any) {
       <section className={classes.table}>
         <table className={classes.bang}>
           <tr>
-            <th className={classes.th} style={{ width: "103px" }}>
-              Mã thiết bị
+            <th className={classes.th} style={{ width: "150px" }}>
+              Mã dịch vụ
             </th>
-            <th className={classes.th} style={{ width: "99px" }}>
-              Tên thiết bị
+            <th className={classes.th} style={{ width: "224px" }}>
+              Tên dịch vụ
             </th>
-            <th className={classes.th} style={{ width: "136px" }}>
-              Địa chỉ IP
+            <th className={classes.th} style={{ width: "230px" }}>
+              Mô tả
             </th>
-            <th className={classes.th} style={{ width: "174px" }}>
+            <th className={classes.th} style={{ width: "253px" }}>
               Trạng thái hoạt động
             </th>
-            <th className={classes.th} style={{ width: "145px" }}>
-              Trạng thái kết nối
-            </th>
-            <th className={classes.th} style={{ width: "268px" }}>
-              Dịch vụ sử dụng
-            </th>
-            <th className={classes.th} style={{ width: "82px" }}></th>
-            <th className={classes.th} style={{ width: "104px" }}></th>
+            <th className={classes.th} style={{ width: "125px" }}></th>
+            <th className={classes.th} style={{ width: "125px" }}></th>
           </tr>
           {listData.lists.map((item: any, index: any) => (
             <tr key={index}>
@@ -184,64 +154,10 @@ function DeciveList({ listData, fetchLists }: any) {
                   )}
                 </span>
               </td>
-              <td className={classes.td}>
-                <span>
-                  {" "}
-                  {item.connecting == "Kết nối" ? (
-                    <ServiceActivePoint1 />
-                  ) : (
-                    <ServiceUnactivePoint1 />
-                  )}
-                </span>
-              </td>
-              <td className={classes.td}>
-                <span>
-                  {" "}
-                  {item.serviceUse}
-                  {showMore && (
-                    <span>
-                      {" "}
-                      khám Sản - Phụ khoa, Khám răng hàm mặt, Khám tai mũi họng,
-                      Khám hô hấp, Khám tổng quát
-                    </span>
-                  )}
-                  {!showMore && (
-                    <>
-                      <br />
-                      <a href="" onClick={() => setShowMore(!showMore)}>
-                        {" "}
-                        Xem thêm
-                      </a>
-                    </>
-                  )}
-                </span>
-              </td>
+
               <td className={`${classes.td} ${classes.duongdan}`}>Chi tiết </td>
               <td className={`${classes.td} ${classes.duongdan}`}>Cập nhật</td>
             </tr>
-            /* <tr key={index}>
-                <td className={classes.tdchan}>{list.deviceCode}</td>
-                <td className={classes.tdchan}>{list.deviceName}</td>
-                <td className={classes.tdchan}>{list.iP}</td>
-                <td className={classes.tdchan}>
-                  <img src={chamxanh} className={classes.chamxanh} />
-                  {list.activeStatus}
-                </td>
-                <td className={classes.tdchan}>
-                  <img src={chamxanh} className={classes.chamxanh} />
-                  {list.connecting}
-                </td>
-                <td className={classes.tdchan}>
-                  <div>Khám tim mạch, Khám mắt...</div>
-                  <div className={classes.duongdan}>Xem thêm</div>
-                </td>
-                <td className={`${classes.duongdan} ${classes.tdchan}`}>
-                  Chi tiết{" "}
-                </td>
-                <td className={`${classes.duongdan} ${classes.tdchan}`}>
-                  Cập nhật
-                </td>
-              </tr> */
           ))}
         </table>
         <div className={classes.newpage}>
@@ -273,4 +189,4 @@ const mapDispatchToProps = (dispatch: any) => {
     fetchLists: () => dispatch(fetchLists()),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(DeciveList);
+export default connect(mapStateToProps, mapDispatchToProps)(ServiceList);

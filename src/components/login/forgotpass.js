@@ -28,8 +28,9 @@ const Forgot = () => {
                 className={classes.submit}
               />
             </Link>
-
-            <input className={classes.cancel} type="submit" value="Hủy" />
+            <Link to={"/" || ""}>
+              <input className={classes.cancel} type="submit" value="Hủy" />
+            </Link>
           </div>
         </form>
       </div>

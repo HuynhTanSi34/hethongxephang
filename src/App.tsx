@@ -1,8 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import { useEffect, useReducer } from "react";
-import React from "react";
-import { Provider } from "react-redux";
-import leader from "./redux/decivelist";
 import Login from "./components/login/login";
 import Errpass from "./components/login/errpass";
 import Forgot from "./components/login/forgotpass";
@@ -17,13 +13,20 @@ import Readdevice from "./components/device/readdevice";
 import Editdevice from "./components/device/editdevice";
 import Report from "./components/report/report";
 import Stt from "./components/report/stt";
-import DeciveList from "./components/device/devicelist";
+import Listservice from "./components/service/listservice.js";
+import Addservice from "./components/service/addservice";
+import Readservice from "./components/service/readservice";
+import Updateservice from "./components/service/updateservice";
+import NumberlevelList from "./components/numberlevel/numberlevellist";
+import Addnumber from "./components/numberlevel/addnumber";
+import Readnumber from "./components/numberlevel/reviewnumber";
+import Popnotlogin from "./components/numberlevel/popwithoutlogin";
 function App() {
   return (
-    <Provider store={leader}>
-      <div>
-        <DeciveList />
-        {/* <Routes>
+    // <Provider store={leader}>
+    <div>
+      {/* <Popnotlogin /> */}
+      <Routes>
         <Route path={"/" || ""} element={<Login />} />
         <Route path="/login/forgotpass" element={<Forgot />} />
         <Route path="/login/newpass" element={<Newpass />} />
@@ -35,10 +38,20 @@ function App() {
         <Route path="/device/adddevice" element={<Adddevice />} />
         <Route path="/device/readdevice" element={<Readdevice />} />
         <Route path="/device/editdevice" element={<Editdevice />} />
+        <Route path="/service/listservice" element={<Listservice />} />
+        <Route path="/service/addservice" element={<Addservice />} />
+        <Route path="/service/readservice" element={<Readservice />} />
+        <Route path="/service/updateservice" element={<Updateservice />} />
+        <Route
+          path="/numberlevel/numberlevellist"
+          element={<NumberlevelList />}
+        />
+        <Route path="/numberlevel/addnumber" element={<Addnumber />} />
+        <Route path="/numberlevel/reviewnumber" element={<Readnumber />} />
         <Route path="/report" element={<Report />} />
-      </Routes> */}
-      </div>
-    </Provider>
+      </Routes>
+    </div>
+    // </Provider>
   );
 }
 

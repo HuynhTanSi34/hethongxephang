@@ -71,8 +71,10 @@ function Day() {
             </Link>
           </div>
           <div className={classes.listItem}>
-            <img src={filayers} />
-            <div>Cấp số</div>
+            <Link to="/numberlevel/numberlevellist" className="Link">
+              <img src={filayers} />
+              <div>Cấp số</div>
+            </Link>
           </div>
           <div className={classes.listItem}>
             <Link to="/report" className="Link">

@@ -12,7 +12,6 @@ import Adddevice from "./components/device/adddevice";
 import Readdevice from "./components/device/readdevice";
 import Editdevice from "./components/device/editdevice";
 import Report from "./components/report/report";
-import Stt from "./components/report/stt";
 import Listservice from "./components/service/listservice.js";
 import Addservice from "./components/service/addservice";
 import Readservice from "./components/service/readservice";
@@ -21,11 +20,17 @@ import NumberlevelList from "./components/numberlevel/numberlevellist";
 import Addnumber from "./components/numberlevel/addnumber";
 import Readnumber from "./components/numberlevel/reviewnumber";
 import Popnotlogin from "./components/numberlevel/popwithoutlogin";
+import Roler from "./components/set/roleuser";
+import Addroler from "./components/set/addroler";
+import Updateroler from "./components/set/updateroler";
+import Accountlist from "./components/set/account";
+import Addaccount from "./components/set/addaccount";
+import Updateaccount from "./components/set/updateaccount";
+import Diary from "./components/set/diary";
 function App() {
   return (
     // <Provider store={leader}>
     <div>
-      {/* <Popnotlogin /> */}
       <Routes>
         <Route path={"/" || ""} element={<Login />} />
         <Route path="/login/forgotpass" element={<Forgot />} />
@@ -49,6 +54,13 @@ function App() {
         <Route path="/numberlevel/addnumber" element={<Addnumber />} />
         <Route path="/numberlevel/reviewnumber" element={<Readnumber />} />
         <Route path="/report" element={<Report />} />
+        <Route path="/set/roleuser" element={<Roler />} />
+        <Route path="/set/addroler" element={<Addroler />} />
+        <Route path="/set/updateroler" element={<Updateroler />} />
+        <Route path="/set/account" element={<Accountlist />} />
+        <Route path="/set/addaccount" element={<Addaccount />} />
+        <Route path="/set/updateaccount" element={<Updateaccount />} />
+        <Route path="/set/diary" element={<Diary />} />
       </Routes>
     </div>
     // </Provider>

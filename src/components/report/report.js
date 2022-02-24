@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "../UI/style.css";
 import classes from "../UI/ReportModule/report.module.css";
+import Dropdown from "react-dropdown";
 import Stt from "./stt";
 import Time from "./time";
 import Status from "./status";
@@ -29,6 +30,35 @@ import nextpage from "../../components/image/nextpage.png";
 import { useState } from "react";
 function Report() {
   const [show, setShow] = useState(false);
+  const optionsa = [
+    "2040001",
+
+    "2040002",
+    "2040003",
+    "2040004",
+    "2040005",
+    "2040006",
+    "2040007",
+    "2040008",
+    "2040009",
+    "20400010",
+  ];
+  const defaultOption = optionsa[0];
+  const optionsName = [
+    "Khám tim mạch",
+    "Răng hàm mặt",
+    "Khám sản - Phụ khoa",
+    "Tai mũi họng",
+    "Khám tổng quát",
+    "Khám hô hấp",
+  ];
+  const optionsTime = [
+    "07:20 - 07/10/2021",
+    "07:20 - 07/10/2021",
+    "07:20 - 07/10/2021",
+  ];
+  const optionsStatus = ["Đang chờ", "Đã sử dụng", "Bỏ qua"];
+  const optionsCre = ["Kiosk", "Hệ thống"];
   return (
     <section className="screen">
       <section className={classes.inform}>
@@ -67,7 +97,9 @@ function Report() {
             <div>Cài đặt hệ thống</div>
             <img src={bacham} className={classes.bacham} />
             <div className={classes.mucluc}>
-              <div className={classes.muclucItem}>Quản lí vai trò</div>
+              <Link to="/set/roleuser" className={classes.Link}>
+                <div className={classes.muclucItem}>Quản lí vai trò</div>
+              </Link>
               <div className={classes.muclucItem}>Quản lí tài khoản</div>
               <div className={classes.muclucItem}>Nhật ký người dùng</div>
             </div>
@@ -133,25 +165,44 @@ function Report() {
           <table className={classes.bang}>
             <tr>
               <th className={classes.th} style={{ width: "226px" }}>
-                <Stt />
+                <Dropdown
+                  options={optionsa}
+                  // onChange={(e) => handleDropdownValue(e)}
+                  value={defaultOption}
+                  placeholder="Số thứ tự"
+                />
               </th>
               <th className={classes.th} style={{ width: "232px" }}>
-                <div>
-                  <div>Tên dịch vụ</div>
-                  <img
-                    src={arrowright}
-                    className={`${classes.size} ${classes.dichvu}`}
-                  />
-                </div>
+                <Dropdown
+                  options={optionsName}
+                  // onChange={(e) => handleDropdownValue(e)}
+                  value={defaultOption}
+                  placeholder="Tên dịch vụ"
+                />
               </th>
               <th className={classes.th} style={{ width: "238px" }}>
-                <Time />
+                <Dropdown
+                  options={optionsTime}
+                  // onChange={(e) => handleDropdownValue(e)}
+                  value={defaultOption}
+                  placeholder="Thời gian cấp"
+                />
               </th>
               <th className={classes.th} style={{ width: "216px" }}>
-                <Status />
+                <Dropdown
+                  options={optionsStatus}
+                  // onChange={(e) => handleDropdownValue(e)}
+                  value={defaultOption}
+                  placeholder="Tình trạng"
+                />
               </th>
               <th className={classes.th} style={{ width: "196px" }}>
-                <From />
+                <Dropdown
+                  options={optionsCre}
+                  // onChange={(e) => handleDropdownValue(e)}
+                  value={defaultOption}
+                  placeholder="Nguồn cấp"
+                />
               </th>
             </tr>
             <tr>

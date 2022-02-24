@@ -91,6 +91,7 @@ function Numberlist({ listData, fetchLists }: any) {
             value={defaultOption}
             placeholder="Select an option"
           />
+          <img src={down} className={classes.imgdown} />
         </div>
       </div>
       <div className={classes.numberleveloption1}>
@@ -102,6 +103,7 @@ function Numberlist({ listData, fetchLists }: any) {
             value={defaultOption}
             placeholder="Select an option"
           />
+          <img src={down} className={classes.imgdown} />
         </div>
       </div>
       <div className={classes.numberleveloption2}>
@@ -113,6 +115,7 @@ function Numberlist({ listData, fetchLists }: any) {
             value={defaultOption}
             placeholder="Select an option"
           />
+          <img src={down} className={classes.imgdown} />
         </div>
       </div>
       <div className={classes.boxname}>Chọn thời gian</div>

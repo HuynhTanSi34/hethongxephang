@@ -163,10 +163,8 @@
   line-height: 24px;
 }
 .trangthaihoatdongselec {
-  height: auto;
   width: 277px;
   border-radius: 8px;
-  padding: 10px 12px 10px 12px;
   display: flex;
   justify-content: space-between;
   color: #535261;
@@ -181,7 +179,14 @@
   align-items: center;
   z-index: 1;
 }
-
+input.trangthaihoatdongselec {
+  padding-left: 12px;
+}
+.imgdown {
+  position: absolute;
+  top: 40px;
+  left: 240px;
+}
 .trangthaihoatdonglist {
   height: auto;
   width: 277px;
@@ -237,8 +242,9 @@
   width: 20px;
   border-radius: 0px;
   position: absolute;
-  top: 36px;
-  left: 245px;
+  top: 40px;
+  left: 240px;
+  z-index: 1;
 }
 .addnewdevice {
   width: 80px;
@@ -263,12 +269,9 @@
   width: 60px;
   margin: 0px 4px 0px 4px;
 }
-.table {
-  border-radius: 12px !important;
-}
+
 .bang {
   width: auto;
-  border-radius: 12px !important;
   position: relative;
   left: 24px;
   top: 7px;

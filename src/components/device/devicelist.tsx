@@ -11,7 +11,7 @@ import addsquare from "../../components/image/addsquare.png";
 import down from "../../components/image/down.png";
 import pastpage from "../../components/image/pastpage.png";
 import nextpage from "../../components/image/nextpage.png";
-import search from "../../components/image/search.png";
+import loop from "../../components/image/loop.png";
 function DeciveList({ listData, fetchLists }: any) {
   useEffect(() => {
     fetchLists();
@@ -115,6 +115,7 @@ function DeciveList({ listData, fetchLists }: any) {
             value={defaultOption}
             placeholder="Select an option"
           />
+          <img src={down} className={classes.imgdown} />
         </div>
       </div>
       <div className={classes.trangthaiketnoi}>
@@ -126,7 +127,7 @@ function DeciveList({ listData, fetchLists }: any) {
             value={defaultOption}
             placeholder="Select an option"
           />
-          <img src={down} />
+          <img src={down} className={classes.imgdown} />
         </div>
       </div>
       <div className={classes.tukhoa}>
@@ -137,7 +138,7 @@ function DeciveList({ listData, fetchLists }: any) {
           onChange={(e) => setSearch(e.target.value)}
           className={classes.trangthaihoatdongselec}
         />
-        <img src={search} className={classes.search} />
+        <img src={loop} className={classes.search} />
       </div>
       <section className={classes.table}>
         <table className={classes.bang}>

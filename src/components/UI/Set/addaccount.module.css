@@ -7,7 +7,7 @@
   flex-direction: column;
 }
 .list {
-  width: 220px;
+  width: 200px;
   height: 290px;
   position: relative;
   top: 170px;
@@ -15,6 +15,7 @@
   flex-direction: column;
 }
 .listItem {
+  width: 208px;
   height: 48px;
   display: flex;
   flex-direction: row;
@@ -39,7 +40,7 @@
   height: auto;
   width: auto;
   position: absolute;
-  left: 221px;
+  left: 208px;
   top: 240px;
   background-color: white;
   border-top-right-radius: 8px;
@@ -87,6 +88,12 @@
   background-color: transparent;
   position: relative;
 }
+.content {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  position: relative;
+}
 .title {
   height: 30px;
   width: auto;
@@ -104,7 +111,19 @@
   width: auto;
   color: #7e7d88;
   position: absolute;
-  left: 120px;
+  left: 210px;
+  top: 28px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+}
+.title12 {
+  height: 30px;
+  width: auto;
+  color: #ff7506;
+  position: absolute;
+  left: 400px;
   top: 28px;
   font-size: 20px;
   font-style: normal;
@@ -112,30 +131,28 @@
   line-height: 30px;
 }
 .title2 {
-  height: 30px;
-  width: auto;
-  color: #ff9138;
-  position: absolute;
-  left: 315px;
-  top: 28px;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 30px;
-}
-.title3 {
   height: 36px;
   width: auto;
   color: #ff9138;
   position: absolute;
   left: 24px;
-  top: 102px;
+  top: 90px;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: 36px;
-  letter-spacing: 0em;
-  text-align: left;
+}
+.title3 {
+  position: absolute;
+  bottom: 722px;
+  right: 64px;
+  top: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: auto;
+  height: auto;
 }
 .title4 {
   position: absolute;

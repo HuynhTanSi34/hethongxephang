@@ -13,7 +13,7 @@ import calendar from "../../components/image/calendar.png";
 import down from "../../components/image/down.png";
 import pastpage from "../../components/image/pastpage.png";
 import nextpage from "../../components/image/nextpage.png";
-import search from "../../components/image/search.png";
+import loop from "../../components/image/loop.png";
 function ReadServiceList({ listData, fetchLists }: any) {
   useEffect(() => {
     fetchLists();
@@ -161,7 +161,7 @@ function ReadServiceList({ listData, fetchLists }: any) {
               onChange={(e) => setSearch(e.target.value)}
               className={classes.tukhoaselec}
             />
-            <img src={search} className={classes.search} />
+            <img src={loop} className={classes.search} />
           </div>
           <section className={classes.table}>
             <table className={classes.bang}>

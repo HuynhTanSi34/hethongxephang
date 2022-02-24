@@ -5,7 +5,7 @@ import Select from "react-select";
 function Stt() {
   const options = useMemo(
     () => [
-      { value: "st0", label: "Số thứ tự", selected: "selected" },
+      { value: "st0", label: "Tất cả" },
       { value: "st2040001", label: "2040001" },
       { value: "st2040002", label: "2040002" },
       { value: "st2040003", label: "2040003" },
@@ -45,13 +45,11 @@ function Stt() {
   );
   return (
     <div style={{ width: "226px" }}>
-      {/* <div className="category">Select with multiple values</div>
-      <Select options={options} defaultValue={options} isMulti /> */}
-      {/* <Select options={options} defaultValue={options[0]} defaultMenuIsOpen /> */}
       <Select
         options={options}
         defaultValue={options[1]}
         styles={customStyles}
+        placeholder="Số thứ tự"
       />
     </div>
   );

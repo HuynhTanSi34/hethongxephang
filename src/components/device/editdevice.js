@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 import { CloseButton } from "react-bootstrap";
+import React, { useState, useCallback, useMemo } from "react";
+import Dropdown from "react-dropdown";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../UI/style.css";
 import classes from "../UI/DeviceModule/edit.module.css";
@@ -16,10 +20,66 @@ import bell from "../../components/image/bell.png";
 import avatarmini from "../../components/image/avatarmini.png";
 import Bell from "../login/bell";
 import down from "../../components/image/down.png";
-
-import { useState } from "react";
+const animatedComponents = makeAnimated();
 function Editdevice() {
   const [show, setShow] = useState(false);
+  ///
+  const options = useMemo(
+    () => [
+      { value: "all", label: "Tất cả" },
+      { value: "tim", label: "Khám tim mạch" },
+      { value: "phu", label: "Khám sản phụ khoa" },
+      { value: "rang", label: "Khám răng hàm mặt" },
+      { value: "mui", label: "Khám tai mũi họng" },
+      { value: "ho", label: "Khám hô hấp" },
+      { value: "tong", label: "Khám tổng quát" },
+    ],
+    []
+  );
+  const styles = useMemo(
+    () => ({
+      multiValueRemove: (base, state) => {
+        return state.data.isFixed ? { ...base, display: "none" } : base;
+      },
+    }),
+    []
+  );
+  const orderByLabel = useCallback(
+    (a, b) => a.label.localeCompare(b.label),
+    []
+  );
+  const orderOptions = useCallback(
+    (values) =>
+      values
+        .filter((v) => v.isFixed)
+        .sort(orderByLabel)
+        .concat(values.filter((v) => !v.isFixed).sort(orderByLabel)),
+    [orderByLabel]
+  );
+  const [value, setValue] = useState(orderOptions(options));
+  const handleChange = useCallback(
+    (inputValue, { action, removedValue }) => {
+      switch (action) {
+        case "remove-value":
+        case "pop-value":
+          if (removedValue.isFixed) {
+            setValue(orderOptions([...inputValue, removedValue]));
+            return;
+          }
+          break;
+        case "clear":
+          setValue(options.filter((v) => v.isFixed));
+          return;
+        default:
+      }
+      setValue(inputValue);
+    },
+    [options, orderOptions]
+  );
+  //
+  const optionsdecive = ["Kiosk", "Dispaly counter"];
+  const optionss = [];
+  const defaultOption = optionss[0];
   return (
     <section className="screen">
       <section className={classes.inform}>
@@ -113,18 +173,16 @@ function Editdevice() {
               >
                 <div>Loại thiết bị:</div>
                 <div style={{ color: "red" }}>*</div>
-                <input
-                  className={classes.infordevicenhaplieuitem1}
-                  type="text"
-                  placeholder="Kiosk"
-                  required
-                />
+
                 <img src={down} className={classes.suyt} />
                 <div className={`${classes.selecthietbi}  ${classes.si}`}>
-                  <div className={classes.selecthietbiitem}>Kiosk</div>
-                  <div className={classes.selecthietbiitem}>
-                    Display counter
-                  </div>
+                  <Dropdown
+                    options={optionsdecive}
+                    // onChange={(e) => handleDropdownValue(e)}
+                    value={defaultOption}
+                    placeholder="Chọn thiết bị"
+                    className={classes.downoptions}
+                  />
                 </div>
               </div>
               <div className={classes.infordevicenhaplieuitem}>
@@ -169,41 +227,17 @@ function Editdevice() {
               </div>
             </div>
             <div className={classes.infordevicenhaplieuitem2}>
-              <div>Dịch vụ sử dụng:</div>
-              <div style={{ color: "red" }}>*</div>
-              <div
-                className={`${classes.infordevicenhaplieuitem1x} ${classes.ix}`}
-              >
-                <div className={classes.infordevicenhaplieuitem1xmini}>
-                  Khám tim mạch <CloseButton variant="white" />
-                </div>
-                <div className={classes.infordevicenhaplieuitem1xmini}>
-                  Khám sản phụ khoa <CloseButton variant="white" />
-                </div>
-                <div className={classes.infordevicenhaplieuitem1xmini}>
-                  Khám răng hàm mặt <CloseButton variant="white" />
-                </div>
-                <div className={classes.infordevicenhaplieuitem1xmini}>
-                  Khám tai mũi họng <CloseButton variant="white" />
-                </div>
-                <div className={classes.infordevicenhaplieuitem1xmini}>
-                  Khám hô hấp <CloseButton variant="white" />
-                </div>
-                <div className={classes.infordevicenhaplieuitem1xmini}>
-                  Khám tổng quát <CloseButton variant="white" />
-                </div>
-                <div
-                  className={`${classes.infordevicenhaplieuitem1xselec} ${classes.ic}`}
-                >
-                  <div className={classes.item1xselec}>Tất cả</div>
-                  <div className={classes.item1xselec}>Khám răng hàm mặt</div>
-                  <div className={classes.item1xselec}>Khám tim mạch</div>
-                  <div className={classes.item1xselec}>Khám sản phụ khoa</div>
-                  <div className={classes.item1xselec}>Khám tai mũi họng</div>
-                  <div className={classes.item1xselec}>Khám hô hấp</div>
-                  <div className={classes.item1xselec}>Khám tổng quát</div>
-                </div>
-              </div>
+              <div className={classes.liy}>Dịch vụ dử dụng</div>
+              <Select
+                isMulti
+                components={animatedComponents}
+                isClearable={value.some((v) => !v.isFixed)}
+                styles={styles}
+                options={options}
+                value={value}
+                onChange={handleChange}
+                placeholder="Chọn dịch vụ"
+              />
             </div>
 
             <div className={classes.chuy1}>

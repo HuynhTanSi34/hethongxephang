@@ -4,16 +4,15 @@ import { fetchLists } from "../../redux/decive/deciveActions";
 import { Link } from "react-router-dom";
 import Dropdown from "react-dropdown";
 import "../UI/style.css";
-import classes from "../UI/ServiceModule/listservice.module.css";
+import classes from "../UI/Set/account.module.css";
 import chamdo from "../../components/image/chamdo.png";
 import chamxanh from "../../components/image/chamxanh.png";
 import addsquare from "../../components/image/addsquare.png";
-import calendar from "../../components/image/calendar.png";
 import down from "../../components/image/down.png";
 import pastpage from "../../components/image/pastpage.png";
 import nextpage from "../../components/image/nextpage.png";
 import loop from "../../components/image/loop.png";
-function ServiceList({ listData, fetchLists }: any) {
+function Accounted({ listData, fetchLists }: any) {
   useEffect(() => {
     fetchLists();
   }, []);
@@ -40,7 +39,7 @@ function ServiceList({ listData, fetchLists }: any) {
 
   const data = listData.dataDevice;
   const [dataDevice, setDataDevice] = useState(data);
-  const options = ["Tất cả", "Hoạt động", "Ngưng hoạt động"];
+  const options = ["Tất cả", "Quản lí", "Kế toán", "Admin"];
   const defaultOption = options[0];
   const handleDropdownValue = (e: any) => {
     if (e.value == "Hoạt động") {
@@ -63,81 +62,70 @@ function ServiceList({ listData, fetchLists }: any) {
   const [search, setSearch] = useState("");
   return (
     <div>
-      <div className={classes.title}>Dịch vụ {">"} </div>
-      <div className={classes.title1}>Danh sách dịch vụ</div>
-      <div className={classes.title2}>Quản lí dịch vụ</div>
-      <Link to="/service/addservice">
+      <div className={classes.title}>Cài đặt hệ thống {">"} </div>
+      <div className={classes.title1}>Quản lý tài khoản</div>
+      <div className={classes.title2}>Danh sách tài khoản</div>
+      <Link to="/set/addaccount">
         <div className={classes.addnewdevice}>
           <img src={addsquare} />
-          <div className={classes.addnewdevicecontent}>Thêm thiết bị</div>
+          <div className={classes.addnewdevicecontent}>Thêm tài khoản</div>
         </div>
       </Link>
-      <div className={classes.trangthaihoatdong}>
-        <div className={classes.trangthaihoatdongname}>
-          Trạng thái hoạt động
-        </div>
-        <div className={`${classes.trangthaihoatdongselec} ${classes.trs}`}>
+      <div className={classes.numberleveloption}>
+        <div className={classes.numberleveloptionname}>Tên vai trò</div>
+        <div className={`${classes.numberleveloptionselec} ${classes.trs}`}>
           <Dropdown
             options={options}
             onChange={(e) => handleDropdownValue(e)}
             value={defaultOption}
-            placeholder="Select an option"
+            placeholder="Tất cả"
           />
           <img src={down} className={classes.imgdown} />
         </div>
       </div>
-      <div className={classes.boxname}>Chọn thời gian</div>
-      <div className={classes.boxtime}>
-        <div className={classes.boxtimeItem1}>
-          <img src={calendar} className={classes.cale} />
-          <input
-            type="text"
-            className={classes.date}
-            placeholder="10/10/2021"
-          />
-        </div>
-        <div className={classes.space}>{">"} </div>
-        <div className={classes.boxtimeItem1}>
-          <img src={calendar} className={classes.cale} />
-          <input
-            type="text"
-            className={classes.date}
-            placeholder="18/10/2021"
-          />
-        </div>
-      </div>
       <div className={classes.tukhoa}>
-        <div className={classes.trangthaihoatdongname}>Từ khóa</div>
+        <div className={classes.numberleveloptionname}>Từ khóa</div>
         <input
           placeholder="Nhập từ khóa"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className={classes.trangthaihoatdongselec}
+          className={classes.numberleveloptionkhoa}
         />
         <img src={loop} className={classes.search} />
       </div>
       <section className={classes.table}>
         <table className={classes.bang}>
           <tr>
-            <th className={classes.th} style={{ width: "150px" }}>
-              Mã dịch vụ
+            <th className={classes.th} style={{ width: "160px" }}>
+              Tên đăng nhập
             </th>
-            <th className={classes.th} style={{ width: "224px" }}>
-              Tên dịch vụ
+            <th className={classes.th} style={{ width: "176px" }}>
+              Họ tên
             </th>
-            <th className={classes.th} style={{ width: "230px" }}>
-              Mô tả
+            <th className={classes.th} style={{ width: "155px" }}>
+              Số điện thoại
             </th>
-            <th className={classes.th} style={{ width: "253px" }}>
+            <th className={classes.th} style={{ width: "auto" }}>
+              Email
+            </th>
+            <th className={classes.th} style={{ width: "125px" }}>
+              Vai trò
+            </th>
+            <th className={classes.th} style={{ width: "203px" }}>
               Trạng thái hoạt động
             </th>
-            <th className={classes.th} style={{ width: "125px" }}></th>
-            <th className={classes.th} style={{ width: "125px" }}></th>
+            <th className={classes.th} style={{ width: "105px" }}></th>
           </tr>
           {listData.lists.map((item: any, index: any) => (
             <tr key={index}>
               <td className={classes.td}>
                 <span>{item.deviceCode}</span>
+              </td>
+              <td className={classes.td}>
+                <span>{item.deviceName}</span>{" "}
+              </td>
+              <td className={classes.td}>
+                <span>{item.deviceName}</span>{" "}
               </td>
               <td className={classes.td}>
                 <span>{item.deviceName}</span>{" "}
@@ -156,12 +144,11 @@ function ServiceList({ listData, fetchLists }: any) {
                 </span>
               </td>
 
-              <td className={`${classes.td} ${classes.duongdan}`}>
-                <Link to="/service/readservice">Chi tiết</Link>{" "}
-              </td>
-              <td className={`${classes.td} ${classes.duongdan}`}>
-                <Link to="/service/updateservice">Cập nhật </Link>
-              </td>
+              <Link to="/set/updateaccount" className={classes.Link}>
+                <td className={`${classes.td} ${classes.duongdan}`}>
+                  Cập nhật
+                </td>
+              </Link>
             </tr>
           ))}
         </table>
@@ -194,4 +181,4 @@ const mapDispatchToProps = (dispatch: any) => {
     fetchLists: () => dispatch(fetchLists()),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ServiceList);
+export default connect(mapStateToProps, mapDispatchToProps)(Accounted);

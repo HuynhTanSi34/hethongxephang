@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../UI/style.css";
+import Dropdown from "react-dropdown";
 import classes from "../UI/DeviceModule/add.module.css";
 import Logomini from "../../components/image/Logomini.png";
 import filogout from "../../components/image/filogout.png";
@@ -18,6 +19,9 @@ import down from "../../components/image/down.png";
 import { useState } from "react";
 function Adddevice() {
   const [show, setShow] = useState(false);
+  const optionsdecive = ["Kiosk", "Dispaly counter"];
+  const options = [];
+  const defaultOption = options[0];
   return (
     <section className="screen">
       <section className={classes.inform}>
@@ -111,19 +115,14 @@ function Adddevice() {
               >
                 <div>Loại thiết bị:</div>
                 <div style={{ color: "red" }}>*</div>
-                <input
-                  className={classes.infordevicenhaplieuitem1}
-                  type="text"
-                  placeholder="Chọn loại thiết bị"
-                  required
-                />
                 <img src={down} className={classes.suyt} />
-                <div className={`${classes.selecthietbi}  ${classes.si}`}>
-                  <div className={classes.selecthietbiitem}>Kiosk</div>
-                  <div className={classes.selecthietbiitem}>
-                    Display counter
-                  </div>
-                </div>
+                <Dropdown
+                  options={optionsdecive}
+                  // onChange={(e) => handleDropdownValue(e)}
+                  value={defaultOption}
+                  placeholder="Chọn thiết bị"
+                  className={classes.downoptions}
+                />
               </div>
               <div className={classes.infordevicenhaplieuitem}>
                 <div>Tên thiết bị:</div>

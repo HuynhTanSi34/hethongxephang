@@ -1,0 +1,69 @@
+.user {
+  height: 75px;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  top: 293px;
+  left: 94px;
+  right: 946px;
+  bottom: 442px;
+}
+.pass {
+  height: 75px;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  top: 384px;
+  left: 94px;
+  right: 946px;
+  bottom: 351px;
+}
+.use,
+.pas {
+  border-radius: 8px;
+  border: grey;
+  border-width: 1px;
+  background: white;
+  padding-left: 12px;
+  height: 44px;
+}
+.forgot {
+  position: absolute;
+  top: 471px;
+  left: 94px;
+  bottom: 318px;
+  right: 1244px;
+  font-weight: 400px;
+  font-size: 14px;
+  line-height: 21px;
+  color: red;
+  width: 102px;
+  height: 21px;
+  cursor: pointer;
+}
+.Link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: stretch;
+  color: red;
+}
+.submit1 {
+  height: 40px;
+  width: 162px;
+  position: absolute;
+  left: 215px;
+  bottom: 259px;
+  top: 511px;
+  right: 1063px;
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  border-width: 0px;
+}

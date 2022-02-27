@@ -1,0 +1,65 @@
+.user {
+  height: 75px;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  top: 293px;
+  left: 94px;
+  right: 946px;
+  bottom: 442px;
+}
+.pass {
+  height: 75px;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  top: 384px;
+  left: 94px;
+  right: 946px;
+  bottom: 351px;
+}
+.use,
+.pas {
+  border-radius: 8px;
+  border-color: red;
+  background-color: white;
+  height: 40px;
+  padding-left: 10px;
+}
+.failt {
+  position: absolute;
+  top: 471px;
+  left: 94.23px;
+  bottom: 318px;
+  right: 1112p.27x;
+}
+.forgot {
+  position: absolute;
+  top: 564px;
+  left: 246px;
+  bottom: 255px;
+  right: 1092px;
+  font-weight: 400px;
+  font-size: 14px;
+  line-height: 21px;
+  color: red;
+  width: 102px;
+  height: 21px;
+}
+.submit2 {
+  height: 40px;
+  width: 162px;
+  position: absolute;
+  left: 215px;
+  bottom: 259px;
+  top: 511px;
+  right: 1063px;
+  background-color: orange;
+  color: white;
+  border-radius: 8px;
+  border-width: 0px;
+}

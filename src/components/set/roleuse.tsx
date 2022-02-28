@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchLists } from "../../redux/decive/deciveActions";
+import { fetchLists } from "../../redux/role/roleActions";
 import { Link } from "react-router-dom";
 import "../UI/style.css";
 import classes from "../UI/Set/roler.module.css";
@@ -53,13 +53,13 @@ function Roleuse({ listData, fetchLists }: any) {
           {listData.lists.map((item: any, index: any) => (
             <tr key={index}>
               <td className={classes.td}>
-                <span>{item.deviceCode}</span>
+                <span>{item.roName}</span>
               </td>
               <td className={classes.td}>
-                <span>{item.deviceName}</span>{" "}
+                <span>{item.roNum}</span>{" "}
               </td>
               <td className={classes.td}>
-                <span>{item.iP}</span>
+                <span>{item.roStatus}</span>
               </td>
               <Link to="/set/updateroler" className={classes.Link}>
                 <td className={`${classes.td} ${classes.duongdan}`}>

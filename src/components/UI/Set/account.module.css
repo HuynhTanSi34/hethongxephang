@@ -166,7 +166,7 @@
   height: auto;
   width: 300px;
   border-radius: 8px;
-  padding: 10px 12px 10px 12px;
+  padding: 10px 0px 10px 0px;
   display: flex;
   justify-content: space-between;
   color: #535261;
@@ -303,11 +303,11 @@
   align-items: center;
   border-color: white !important;
   border-width: 1px !important;
-  padding-left: 5px;
+  padding-left: 14px;
   text-align: left;
 }
 .td {
-  padding-left: 8px;
+  padding-left: 14px;
   height: 43px;
   background-color: white;
   font-size: 14px;
@@ -341,6 +341,7 @@
   color: blue;
   text-decoration: underline;
   cursor: pointer;
+  padding-top: 10px;
 }
 .stop {
   color: red;
@@ -360,7 +361,7 @@ img.chamxanh {
   flex-direction: row;
   justify-content: space-between;
   position: relative;
-  left: 852px;
+  left: 552px;
   top: 30px;
 }
 .newpageitem {

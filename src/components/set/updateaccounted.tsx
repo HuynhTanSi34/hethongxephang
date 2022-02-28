@@ -14,26 +14,6 @@ function Updateaccounted({ listData, fetchLists }: any) {
   useEffect(() => {
     fetchLists();
   }, []);
-  const ServiceActivePoint = (value: any) => {
-    return (
-      <>
-        <span className="ActivePoint">
-          <img src={chamxanh} />
-        </span>
-        <span> Hoạt động</span>
-      </>
-    );
-  };
-  const ServiceUnactivePoint = (value: any) => {
-    return (
-      <>
-        <span className="UnActivePoint">
-          <img src={chamdo} />
-        </span>
-        <span>Ngưng hoạt động</span>
-      </>
-    );
-  };
 
   const data = listData.dataDevice;
   const [dataDevice, setDataDevice] = useState(data);
@@ -139,7 +119,7 @@ function Updateaccounted({ listData, fetchLists }: any) {
                 onChange={(e) => handleDropdownValue(e)}
                 value={defaultOption}
                 placeholder="Select an option"
-                className={classes.infordevicenhaplieuitem1}
+                className={classes.infordevicenhaplieuitem3}
               />
             </div>
             <div className={classes.infordevicenhaplieuitem}>
@@ -150,7 +130,7 @@ function Updateaccounted({ listData, fetchLists }: any) {
                 onChange={(e) => handleDropdownValue(e)}
                 value={defaultOption}
                 placeholder="Select an option"
-                className={classes.infordevicenhaplieuitem1}
+                className={classes.infordevicenhaplieuitem3}
               />
             </div>
           </div>

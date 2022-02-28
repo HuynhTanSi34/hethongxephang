@@ -17,8 +17,11 @@ import bell from "../../components/image/bell.png";
 import avatarmini from "../../components/image/avatarmini.png";
 import Bell from "../login/bell";
 import down from "../../components/image/down.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Updateaccount() {
+  useEffect(() => {
+    document.title = "Cập nhật tài khoản";
+  });
   const [show, setShow] = useState(false);
   const optionsdecive = ["Kiosk", "Dispaly counter"];
   const options = [];
@@ -48,8 +51,10 @@ function Updateaccount() {
               </Link>
             </div>
             <div className={classes.listItem}>
-              <img src={filayers} />
-              <div>Cấp số</div>
+              <Link to="/numberlevel/numberlevellist" className="Link">
+                <img src={filayers} />
+                <div>Cấp số</div>
+              </Link>
             </div>
             <div className={classes.listItem}>
               <Link to="/report" className="Link">
@@ -71,7 +76,9 @@ function Updateaccount() {
                 <div className={`${classes.muclucItem} ${classes.thiet} `}>
                   Quản lí tài khoản
                 </div>
-                <div className={classes.muclucItem}>Nhật ký người dùng</div>
+                <Link to="/set/diary" className={classes.Link}>
+                  <div className={classes.muclucItem}>Nhật ký người dùng</div>
+                </Link>
               </div>
             </div>
           </div>

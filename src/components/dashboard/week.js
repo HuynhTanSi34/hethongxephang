@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../UI/style.css";
 import classes from "../UI/DashboardModule/day.module.css";
 import Bell from "../login/bell";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Logomini from "../../components/image/Logomini.png";
 import filogout from "../../components/image/filogout.png";
 import element4 from "../../components/image/element4.png";
@@ -36,6 +36,9 @@ import chamhong from "../../components/image/chamhong.png";
 import DatePicker from "sassy-datepicker";
 import Chartweek from "../dashboard/chartweek";
 function Week() {
+  useEffect(() => {
+    document.title = "Dashboard";
+  });
   const [show, setShow] = useState(false);
   const [date, setDate] = useState(new Date());
   const onChange = (newDate) => {
@@ -65,8 +68,10 @@ function Week() {
           </div>
 
           <div className={classes.listItem}>
-            <img src={service} />
-            <div>Dịch vụ</div>
+            <Link to="/service/listservice" className="Link">
+              <img src={service} />
+              <div>Dịch vụ</div>
+            </Link>
           </div>
           <div className={classes.listItem}>
             <Link to="/numberlevel/numberlevellist" className="Link">
@@ -85,9 +90,15 @@ function Week() {
             <div>Cài đặt hệ thống</div>
             <img src={bacham} className={classes.bacham} />
             <div className={classes.mucluc}>
-              <div className={classes.muclucItem}>Quản lí vai trò</div>
-              <div className={classes.muclucItem}>Quản lí tài khoản</div>
-              <div className={classes.muclucItem}>Nhật ký người dùng</div>
+              <Link to="/set/roleuser" className="Link">
+                <div className={classes.muclucItem}>Quản lí vai trò</div>
+              </Link>
+              <Link to="/set/account" className="Link">
+                <div className={classes.muclucItem}>Quản lí tài khoản</div>
+              </Link>
+              <Link to="/set/diary" className="Link">
+                <div className={classes.muclucItem}>Nhật ký người dùng</div>
+              </Link>
             </div>
           </div>
         </div>

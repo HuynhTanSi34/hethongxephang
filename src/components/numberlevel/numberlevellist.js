@@ -61,9 +61,15 @@ function NumberlevelList() {
               <div>Cài đặt hệ thống</div>
               <img src={bacham} className={classes.bacham} />
               <div className={classes.mucluc}>
-                <div className={classes.muclucItem}>Quản lí vai trò</div>
-                <div className={classes.muclucItem}>Quản lí tài khoản</div>
-                <div className={classes.muclucItem}>Nhật ký người dùng</div>
+                <Link to="/set/roleuser" className="Link">
+                  <div className={classes.muclucItem}>Quản lí vai trò</div>
+                </Link>
+                <Link to="/set/account" className="Link">
+                  <div className={classes.muclucItem}>Quản lí tài khoản</div>
+                </Link>
+                <Link to="/set/diary" className="Link">
+                  <div className={classes.muclucItem}>Nhật ký người dùng</div>
+                </Link>
               </div>
             </div>
           </div>

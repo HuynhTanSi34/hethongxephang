@@ -16,8 +16,11 @@ import bacham from "../../components/image/bacham.png";
 import bell from "../../components/image/bell.png";
 import avatarmini from "../../components/image/avatarmini.png";
 import Bell from "../login/bell";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Accountlist() {
+  useEffect(() => {
+    document.title = "Quản lý tài khoản";
+  });
   const [show, setShow] = useState(false);
   return (
     <Provider store={leader}>

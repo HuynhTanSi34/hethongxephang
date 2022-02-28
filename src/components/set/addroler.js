@@ -16,8 +16,11 @@ import bacham from "../../components/image/bacham.png";
 import bell from "../../components/image/bell.png";
 import avatarmini from "../../components/image/avatarmini.png";
 import Bell from "../login/bell";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Addroler() {
+  useEffect(() => {
+    document.title = "Thêm vai trò";
+  });
   const [show, setShow] = useState(false);
   return (
     <Provider store={leader}>
@@ -65,8 +68,12 @@ function Addroler() {
                 <div className={`${classes.muclucItem} ${classes.thiet} `}>
                   Quản lí vai trò
                 </div>
-                <div className={classes.muclucItem}>Quản lí tài khoản</div>
-                <div className={classes.muclucItem}>Nhật ký người dùng</div>
+                <Link to="/set/account" className={classes.Link}>
+                  <div className={classes.muclucItem}>Quản lí tài khoản</div>
+                </Link>
+                <Link to="/set/diary" className="Link">
+                  <div className={classes.muclucItem}>Nhật ký người dùng</div>
+                </Link>
               </div>
             </div>
           </div>

@@ -16,8 +16,11 @@ import bacham from "../../components/image/bacham.png";
 import bell from "../../components/image/bell.png";
 import avatarmini from "../../components/image/avatarmini.png";
 import Bell from "../login/bell";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Readnumber() {
+  useEffect(() => {
+    document.title = "Chi tiết cấp số";
+  });
   const [show, setShow] = useState(false);
   return (
     <Provider store={leader}>
@@ -38,8 +41,10 @@ function Readnumber() {
               </Link>
             </div>
             <div className={classes.listItem}>
-              <img src={service} />
-              <div>Dịch vụ</div>
+              <Link to="/service/listservice" className="Link">
+                <img src={service} />
+                <div>Dịch vụ</div>
+              </Link>
             </div>
             <div className={`${classes.listItem} ${classes.thiet}`}>
               <img src={filayers} />
@@ -56,9 +61,15 @@ function Readnumber() {
               <div>Cài đặt hệ thống</div>
               <img src={bacham} className={classes.bacham} />
               <div className={classes.mucluc}>
-                <div className={classes.muclucItem}>Quản lí vai trò</div>
-                <div className={classes.muclucItem}>Quản lí tài khoản</div>
-                <div className={classes.muclucItem}>Nhật ký người dùng</div>
+                <Link to="/set/roleuser" className="Link">
+                  <div className={classes.muclucItem}>Quản lí vai trò</div>
+                </Link>
+                <Link to="/set/account" className="Link">
+                  <div className={classes.muclucItem}>Quản lí tài khoản</div>
+                </Link>
+                <Link to="/set/diary" className="Link">
+                  <div className={classes.muclucItem}>Nhật ký người dùng</div>
+                </Link>
               </div>
             </div>
           </div>

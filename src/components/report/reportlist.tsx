@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchLists } from "../../redux/account/accountActions";
+import { fetchLists } from "../../redux/report/reportActions";
 import { Link } from "react-router-dom";
-import Dropdown from "react-dropdown";
 import ReactPaginate from "react-paginate";
+import Dropdown from "react-dropdown";
 import "../UI/style.css";
-import classes from "../UI/Set/account.module.css";
+import classes from "../UI/ReportModule/report.module.css";
 import chamdo from "../../components/image/chamdo.png";
-import chamxanh from "../../components/image/chamxanh.png";
+import chamxanhduong from "../../components/image/chamxanhduong.png";
+import chambac from "../../components/image/chambac.png";
 import addsquare from "../../components/image/addsquare.png";
+import calendar from "../../components/image/calendar.png";
 import down from "../../components/image/down.png";
 import pastpage from "../../components/image/pastpage.png";
 import nextpage from "../../components/image/nextpage.png";
 import loop from "../../components/image/loop.png";
-function Accounted({ listData, fetchLists }: any) {
+function ReportList({ listData, fetchLists }: any) {
   useEffect(() => {
     fetchLists();
   }, []);
@@ -21,9 +23,9 @@ function Accounted({ listData, fetchLists }: any) {
     return (
       <>
         <span className="ActivePoint">
-          <img src={chamxanh} />
+          <img src={chamxanhduong} />
         </span>
-        <span> Hoạt động</span>
+        <span> Đang chờ</span>
       </>
     );
   };
@@ -31,17 +33,53 @@ function Accounted({ listData, fetchLists }: any) {
     return (
       <>
         <span className="UnActivePoint">
-          <img src={chamdo} />
+          <img src={chambac} />
         </span>
-        <span>Ngưng hoạt động</span>
+        <span>Đã sử dụng</span>
       </>
     );
   };
-
+  const ServiceUnactivePoint1 = (value: any) => {
+    return (
+      <>
+        <span className="UnActivePoint">
+          <img src={chamdo} />
+        </span>
+        <span>Bỏ qua</span>
+      </>
+    );
+  };
+  const optionsa = [
+    "2040001",
+    "2040002",
+    "2040003",
+    "2040004",
+    "2040005",
+    "2040006",
+    "2040007",
+    "2040008",
+    "2040009",
+    "20400010",
+  ];
+  const defaultOption = optionsa[0];
+  const optionsName = [
+    "Khám tim mạch",
+    "Răng hàm mặt",
+    "Khám sản - Phụ khoa",
+    "Tai mũi họng",
+    "Khám tổng quát",
+    "Khám hô hấp",
+  ];
+  const optionsTime = [
+    "07:20 - 07/10/2021",
+    "07:20 - 07/10/2021",
+    "07:20 - 07/10/2021",
+  ];
+  const optionsStatus = ["Đang chờ", "Đã sử dụng", "Bỏ qua"];
+  const optionsCre = ["Kiosk", "Hệ thống"];
   const data = listData.dataDevice;
   const [dataDevice, setDataDevice] = useState(data);
-  const options = ["Tất cả", "Quản lí", "Kế toán", "Admin"];
-  const defaultOption = options[0];
+
   const handleDropdownValue = (e: any) => {
     if (e.value == "Hoạt động") {
       const filterdata = data.filter(
@@ -60,6 +98,7 @@ function Accounted({ listData, fetchLists }: any) {
       setDataDevice(filterdata);
     }
   };
+  const [showMore, setShowMore] = useState(false);
   const [search, setSearch] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
   const usersPrePage = 9;
@@ -73,92 +112,79 @@ function Accounted({ listData, fetchLists }: any) {
       return (
         <tr key={item.id}>
           <td className={classes.td}>
-            <span>{item.acName}</span>
+            <span>{item.reStt}</span>
           </td>
           <td className={classes.td}>
-            <span>{item.acNam}</span>{" "}
+            <span>{item.reName}</span>{" "}
           </td>
           <td className={classes.td}>
-            <span>{item.acNum}</span>{" "}
-          </td>
-          <td className={classes.td}>
-            <span>{item.acEmail}</span>{" "}
-          </td>
-          <td className={classes.td}>
-            <span>{item.acVai}</span>
+            <span>{item.reTime}</span>
           </td>
           <td className={classes.td}>
             <span>
               {" "}
-              {item.acTus == "Hoạt động" ? (
+              {item.reTus == "Đang chờ" ? (
                 <ServiceActivePoint />
-              ) : (
+              ) : item.reTus == "Đã sử dụng" ? (
                 <ServiceUnactivePoint />
+              ) : (
+                <ServiceUnactivePoint1 />
               )}
             </span>
           </td>
 
-          <Link to="/set/updateaccount" className={classes.Link}>
-            <td className={`${classes.td} ${classes.duongdan}`}>Cập nhật</td>
-          </Link>
+          <td className={classes.td}>
+            <span>{item.reCre}</span>
+          </td>
         </tr>
       );
     });
   return (
     <div>
-      <div className={classes.title}>Cài đặt hệ thống {">"} </div>
-      <div className={classes.title1}>Quản lý tài khoản</div>
-      <div className={classes.title2}>Danh sách tài khoản</div>
-      <Link to="/set/addaccount">
-        <div className={classes.addnewdevice}>
-          <img src={addsquare} />
-          <div className={classes.addnewdevicecontent}>Thêm tài khoản</div>
-        </div>
-      </Link>
-      <div className={classes.numberleveloption}>
-        <div className={classes.numberleveloptionname}>Tên vai trò</div>
-        <div className={`${classes.numberleveloptionselec} ${classes.trs}`}>
-          <Dropdown
-            options={options}
-            onChange={(e) => handleDropdownValue(e)}
-            value={defaultOption}
-            placeholder="Tất cả"
-          />
-          <img src={down} className={classes.imgdown} />
-        </div>
-      </div>
-      <div className={classes.tukhoa}>
-        <div className={classes.numberleveloptionname}>Từ khóa</div>
-        <input
-          placeholder="Nhập từ khóa"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className={classes.numberleveloptionkhoa}
-        />
-        <img src={loop} className={classes.search} />
-      </div>
       <section className={classes.table}>
         <table className={classes.bang}>
           <tr>
-            <th className={classes.th} style={{ width: "160px" }}>
-              Tên đăng nhập
+            <th className={classes.th} style={{ width: "226px" }}>
+              <div className={classes.titleth}>
+                <Dropdown
+                  options={optionsa}
+                  value={defaultOption}
+                  placeholder="Số thứ tự"
+                />
+              </div>
             </th>
-            <th className={classes.th} style={{ width: "176px" }}>
-              Họ tên
+            <th className={classes.th} style={{ width: "232px" }}>
+              <Dropdown
+                options={optionsName}
+                // onChange={(e) => handleDropdownValue(e)}
+                value={defaultOption}
+                placeholder="Tên dịch vụ"
+              />
             </th>
-            <th className={classes.th} style={{ width: "155px" }}>
-              Số điện thoại
+            <th className={classes.th} style={{ width: "238px" }}>
+              <Dropdown
+                options={optionsTime}
+                // onChange={(e) => handleDropdownValue(e)}
+                value={defaultOption}
+                placeholder="Thời gian cấp"
+              />
             </th>
-            <th className={classes.th} style={{ width: "auto" }}>
-              Email
+            <th className={classes.th} style={{ width: "216px" }}>
+              <Dropdown
+                options={optionsStatus}
+                // onChange={(e) => handleDropdownValue(e)}
+                value={defaultOption}
+                placeholder="Tình trạng"
+              />
             </th>
-            <th className={classes.th} style={{ width: "125px" }}>
-              Vai trò
+            <th className={classes.th} style={{ width: "196px" }}>
+              <Dropdown
+                options={optionsCre}
+                // onChange={(e) => handleDropdownValue(e)}
+                value={defaultOption}
+                placeholder="Nguồn cấp"
+              />
             </th>
-            <th className={classes.th} style={{ width: "203px" }}>
-              Trạng thái hoạt động
-            </th>
-            <th className={classes.th} style={{ width: "105px" }}></th>
           </tr>
           {displayUsers}
         </table>
@@ -189,4 +215,4 @@ const mapDispatchToProps = (dispatch: any) => {
     fetchLists: () => dispatch(fetchLists()),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Accounted);
+export default connect(mapStateToProps, mapDispatchToProps)(ReportList);

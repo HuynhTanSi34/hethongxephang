@@ -258,11 +258,11 @@
   align-items: center;
   border-color: white !important;
   border-width: 1px !important;
-  padding-left: 5px;
+  padding-left: 14px;
   text-align: left;
 }
 .td {
-  padding-left: 8px;
+  padding-left: 14px;
   height: 43px;
   background-color: white;
   font-size: 14px;
@@ -296,6 +296,7 @@
   color: blue;
   text-decoration: underline;
   cursor: pointer;
+  padding-top: 10px;
 }
 .stop {
   color: red;

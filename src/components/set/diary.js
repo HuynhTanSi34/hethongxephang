@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../UI/style.css";
 import { Provider } from "react-redux";
 import leader from "../../redux/decivelist";
-import Diaried from "../../components/set/diaried";
+import Diariedd from "../../components/set/diaried";
 import classes from "../UI/Set/diary.module.css";
 import Logomini from "../../components/image/Logomini.png";
 import filogout from "../../components/image/filogout.png";
@@ -16,8 +16,11 @@ import bacham from "../../components/image/bacham.png";
 import bell from "../../components/image/bell.png";
 import avatarmini from "../../components/image/avatarmini.png";
 import Bell from "../login/bell";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Diary() {
+  useEffect(() => {
+    document.title = "Nhật ký người dùng";
+  });
   const [show, setShow] = useState(false);
   return (
     <Provider store={leader}>
@@ -44,8 +47,10 @@ function Diary() {
               </Link>
             </div>
             <div className={classes.listItem}>
-              <img src={filayers} />
-              <div>Cấp số</div>
+              <Link to="/numberlevel/numberlevellist" className="Link">
+                <img src={filayers} />
+                <div>Cấp số</div>
+              </Link>
             </div>
             <div className={classes.listItem}>
               <Link to="/report" className="Link">
@@ -100,7 +105,7 @@ function Diary() {
               </Link>
             </div>
           </div>
-          <Diaried />
+          <Diariedd />
         </section>
       </section>
     </Provider>

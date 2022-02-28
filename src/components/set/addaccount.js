@@ -18,8 +18,11 @@ import bell from "../../components/image/bell.png";
 import avatarmini from "../../components/image/avatarmini.png";
 import Bell from "../login/bell";
 import down from "../../components/image/down.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Addaccount() {
+  useEffect(() => {
+    document.title = "Thêm tài khoản";
+  });
   const [show, setShow] = useState(false);
   const optionsdecive = ["Kiosk", "Dispaly counter"];
   const options = [];
@@ -72,7 +75,9 @@ function Addaccount() {
                 <div className={`${classes.muclucItem} ${classes.thiet} `}>
                   Quản lí tài khoản
                 </div>
-                <div className={classes.muclucItem}>Nhật ký người dùng</div>
+                <Link to="/set/diary" className={classes.Link}>
+                  <div className={classes.muclucItem}>Nhật ký người dùng</div>
+                </Link>
               </div>
             </div>
           </div>

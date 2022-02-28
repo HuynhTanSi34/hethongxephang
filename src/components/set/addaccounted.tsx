@@ -5,35 +5,10 @@ import { Link } from "react-router-dom";
 import Dropdown from "react-dropdown";
 import "../UI/style.css";
 import classes from "../UI/Set/addaccount.module.css";
-import chamdo from "../../components/image/chamdo.png";
-import chamxanh from "../../components/image/chamxanh.png";
-import addsquare from "../../components/image/addsquare.png";
-import down from "../../components/image/down.png";
-import loop from "../../components/image/loop.png";
 function Addaccounted({ listData, fetchLists }: any) {
   useEffect(() => {
     fetchLists();
   }, []);
-  const ServiceActivePoint = (value: any) => {
-    return (
-      <>
-        <span className="ActivePoint">
-          <img src={chamxanh} />
-        </span>
-        <span> Hoạt động</span>
-      </>
-    );
-  };
-  const ServiceUnactivePoint = (value: any) => {
-    return (
-      <>
-        <span className="UnActivePoint">
-          <img src={chamdo} />
-        </span>
-        <span>Ngưng hoạt động</span>
-      </>
-    );
-  };
 
   const data = listData.dataDevice;
   const [dataDevice, setDataDevice] = useState(data);
@@ -139,7 +114,7 @@ function Addaccounted({ listData, fetchLists }: any) {
                 onChange={(e) => handleDropdownValue(e)}
                 value={defaultOption}
                 placeholder="Select an option"
-                className={classes.infordevicenhaplieuitem1}
+                className={classes.infordevicenhaplieuitem3}
               />
             </div>
             <div className={classes.infordevicenhaplieuitem}>
@@ -150,7 +125,7 @@ function Addaccounted({ listData, fetchLists }: any) {
                 onChange={(e) => handleDropdownValue(e)}
                 value={defaultOption}
                 placeholder="Select an option"
-                className={classes.infordevicenhaplieuitem1}
+                className={classes.infordevicenhaplieuitem3}
               />
             </div>
           </div>

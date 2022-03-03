@@ -49,7 +49,15 @@ function ReportList({ listData, fetchLists }: any) {
       </>
     );
   };
+  const dn = [
+    "Số thứ tự",
+    "Tên dịch vụ",
+    "Thời gian cấp",
+    "Tình trạng",
+    "Nguồn cấp",
+  ];
   const optionsa = [
+    "Tất cả",
     "2040001",
     "2040002",
     "2040003",
@@ -61,8 +69,10 @@ function ReportList({ listData, fetchLists }: any) {
     "2040009",
     "20400010",
   ];
-  const defaultOption = optionsa[0];
+  const defaultOptionsa = dn[0];
+  const [showstt, setShowstt] = useState(false);
   const optionsName = [
+    "Tất cả",
     "Khám tim mạch",
     "Răng hàm mặt",
     "Khám sản - Phụ khoa",
@@ -70,36 +80,20 @@ function ReportList({ listData, fetchLists }: any) {
     "Khám tổng quát",
     "Khám hô hấp",
   ];
+  const defaultOptionme = dn[1];
   const optionsTime = [
+    "Tất cả",
     "07:20 - 07/10/2021",
     "07:20 - 07/10/2021",
     "07:20 - 07/10/2021",
   ];
-  const optionsStatus = ["Đang chờ", "Đã sử dụng", "Bỏ qua"];
-  const optionsCre = ["Kiosk", "Hệ thống"];
+  const defaultOptionime = dn[2];
+  const optionsStatus = ["Tất cả", "Đang chờ", "Đã sử dụng", "Bỏ qua"];
+  const defaultOptionus = dn[3];
+  const optionsCre = ["Tất cả", "Kiosk", "Hệ thống"];
+  const defaultOptionre = dn[4];
   const data = listData.dataDevice;
   const [dataDevice, setDataDevice] = useState(data);
-
-  const handleDropdownValue = (e: any) => {
-    if (e.value == "Hoạt động") {
-      const filterdata = data.filter(
-        (item: any) => item.activeStatus == "Hoạt động"
-      );
-      setDataDevice(filterdata);
-    } else if (e.value == "Ngưng hoạt động") {
-      const filterdata = data.filter(
-        (item: any) => item.activeStatus == "Ngưng hoạt động"
-      );
-      setDataDevice(filterdata);
-    } else if (e.value == "Ngưng hoạt động") {
-      const filterdata = data.filter(
-        (item: any) => item.activeStatus == "Ngưng hoạt động"
-      );
-      setDataDevice(filterdata);
-    }
-  };
-  const [showMore, setShowMore] = useState(false);
-  const [search, setSearch] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
   const usersPrePage = 9;
   const pagesVisited = pageNumber * usersPrePage;
@@ -145,19 +139,21 @@ function ReportList({ listData, fetchLists }: any) {
         <table className={classes.bang}>
           <tr>
             <th className={classes.th} style={{ width: "226px" }}>
+              {/* Số thứ tự{" "}
+              <button onClick={() => setShowstt(!showstt)}>
+                .{" "}
+                {showstt && ( */}
               <div className={classes.titleth}>
-                <Dropdown
-                  options={optionsa}
-                  value={defaultOption}
-                  placeholder="Số thứ tự"
-                />
+                <Dropdown options={optionsa} value={defaultOptionsa} />
               </div>
+              {/* )}
+              </button> */}
             </th>
             <th className={classes.th} style={{ width: "232px" }}>
               <Dropdown
                 options={optionsName}
                 // onChange={(e) => handleDropdownValue(e)}
-                value={defaultOption}
+                value={defaultOptionme}
                 placeholder="Tên dịch vụ"
               />
             </th>
@@ -165,7 +161,7 @@ function ReportList({ listData, fetchLists }: any) {
               <Dropdown
                 options={optionsTime}
                 // onChange={(e) => handleDropdownValue(e)}
-                value={defaultOption}
+                value={defaultOptionime}
                 placeholder="Thời gian cấp"
               />
             </th>
@@ -173,7 +169,7 @@ function ReportList({ listData, fetchLists }: any) {
               <Dropdown
                 options={optionsStatus}
                 // onChange={(e) => handleDropdownValue(e)}
-                value={defaultOption}
+                value={defaultOptionus}
                 placeholder="Tình trạng"
               />
             </th>
@@ -181,7 +177,7 @@ function ReportList({ listData, fetchLists }: any) {
               <Dropdown
                 options={optionsCre}
                 // onChange={(e) => handleDropdownValue(e)}
-                value={defaultOption}
+                value={defaultOptionre}
                 placeholder="Nguồn cấp"
               />
             </th>

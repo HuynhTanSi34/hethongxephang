@@ -18,14 +18,7 @@ import bell from "../../components/image/bell.png";
 import avatarmini from "../../components/image/avatarmini.png";
 import Bell from "../login/bell";
 import calendar from "../../components/image/calendar.png";
-import arrowright from "../../components/image/arrowright.png";
 import download from "../../components/image/download.png";
-import chamdo from "../../components/image/chamdo.png";
-import chamxanhduong from "../../components/image/chamxanhduong.png";
-import chambac from "../../components/image/chambac.png";
-import pastpage from "../../components/image/pastpage.png";
-import nextpage from "../../components/image/nextpage.png";
-
 import { useState, useEffect } from "react";
 function Report() {
   useEffect(() => {

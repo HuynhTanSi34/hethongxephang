@@ -6,6 +6,7 @@
   margin: 0px;
   padding: 0px;
   height: auto;
+  min-height: 810px;
 }
 .Link {
   text-decoration: none;
@@ -485,12 +486,12 @@ img {
 
 .Dropdown-option {
   height: auto !important;
-  width: 100% !important;
+  /* width: 100% !important; */
   margin-top: 2px !important;
   align-content: center !important;
-
   padding: 10px 12px 10px 12px !important;
   justify-content: center !important;
+  color: black !important;
 }
 /* .Dropdown-option:nth-child(2) {
   height: 40px !important;

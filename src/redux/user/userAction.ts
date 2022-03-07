@@ -1,4 +1,4 @@
-import { REQ, SUCCESS, ERROR } from "./userTypes";
+import { REQ, SUCCESS, ERROR, ADD_TEST } from "./userTypes";
 import db from "../../firebase.config";
 export const FETCHREQ = () => {
   return {
@@ -15,6 +15,12 @@ export const FETCHERROR = (error: any) => {
   return {
     type: ERROR,
     payload: error,
+  };
+};
+export const ADDTEST = (content: any) => {
+  return {
+    type: ADD_TEST,
+    payload: content,
   };
 };
 export const fetchLists = () => {

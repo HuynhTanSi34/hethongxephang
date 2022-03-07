@@ -1,4 +1,4 @@
-import { REQ, SUCCESS, ERROR } from "./userTypes";
+import { REQ, SUCCESS, ERROR, ADD_TEST } from "./userTypes";
 const initState = {
   loading: true,
   error: "",

@@ -29,11 +29,11 @@ import Updateaccount from "./components/set/updateaccount";
 import Diary from "./components/set/diary";
 function App() {
   return (
-    // <Provider store={leader}>
     <div>
       <Routes>
-        <Route path={"/" || ""} element={<Login />} />
+        <Route path={"/" || ""} element={<Login />}></Route>
         <Route path="/login/forgotpass" element={<Forgot />} />
+        <Route path="/login/errpass" element={<Errpass />} />
         <Route path="/login/newpass" element={<Newpass />} />
         <Route path="/login/profile" element={<Profile />} />
         <Route path="/dashboard/day" element={<Day />} />
@@ -63,7 +63,6 @@ function App() {
         <Route path="/set/diary" element={<Diary />} />
       </Routes>
     </div>
-    // </Provider>
   );
 }
 
